@@ -1,8 +1,8 @@
----
-name: Install Logstash on Ubuntu
-hosts: server1
-become: yes
-tasks:
+# ---
+# name: Install Logstash on Ubuntu
+# hosts: server1
+# become: yes
+# tasks:
 
   - name: Install Java
     apt:
@@ -35,4 +35,4 @@ tasks:
       name: logstash
       state: started
       enabled: yes
-...
+

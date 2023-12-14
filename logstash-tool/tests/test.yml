@@ -1,5 +1,11 @@
----
-- hosts: localhost
-  remote_user: root
-  roles:
-    - logstash-tool
+# ---
+# - hosts: localhost
+#   remote_user: root
+#   roles:
+#     - logstash-tool
+
+# - name: Install Logstash 
+#   hosts: localhost
+#   become: yes
+#   roles:
+#   - logstash-tool
