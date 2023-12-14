@@ -1,5 +1,5 @@
-- name: Install Logstash 
+- name: Logstash 
   hosts: localhost
   become: yes
   roles:
-  - logstash-tool
+  - role: /home/ubuntu/logstash-role/logstash-tool

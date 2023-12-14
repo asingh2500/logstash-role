@@ -1,18 +1,13 @@
-# ---
-# name: Install Logstash on Ubuntu
-# hosts: server1
-# become: yes
-# tasks:
 
   - name: Install Java
     apt:
       name: "{{ ubuntu_java_apt_package }}"
       state: present
 
-  - name: Add Logstash APT Repository Key
+  - name: Add Elasticsearch apt key.
     apt_key:
-      url: "{{ ubuntu_logstash_repo_key_url }}"
-    state: present
+      url: https://artifacts.elastic.co/GPG-KEY-elasticsearch
+      state: present
 
   - name: Install the apt-transport-https package
     apt:
@@ -21,13 +16,13 @@
 
   - name: Add Logstash APT Repository
     apt_repository:
-      repo: "{{ ubuntu_logstash_repo_url }}"
+      repo: 'deb https://artifacts.elastic.co/packages/{{ logstash_version }}/apt stable main'
       state: present
-      update_cache: yes
+      update_cache: true
 
   - name: Install specific logstash version
     apt:
-      name: "logstash={{ logstash_version }}"
+      name: '{{ logstash_package }}'
       state: present
 
   - name: Start and enable Logstash Service

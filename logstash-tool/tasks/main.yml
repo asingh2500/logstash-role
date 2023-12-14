@@ -1,21 +1,16 @@
 
 ##--------------- Ubuntu ---------------##
-##--------------- Ubuntu tags for install/change_config_file ---------------##
+##--------------- Installation file ---------------##
 
 - name: Install Logstash on ubuntu
-  include: install_ubuntu.yml
-  when:
-    - ansible_os_family == 'Debian'
+  include_tasks: install_ubuntu.yml
   tags: 
     - install_logstash_ubuntu
-    - never
 
- ##--------------- Ubuntu tag for logstash ---------------##
+ ##--------------- change_config_file ---------------##
 
 - name: change config yaml for ubuntu
-  include: ubuntu_config.yml
-  when:
-    - ansible_os_family == 'Debian'
+  include_tasks: ubuntu_config.yml
   tags: 
     - change_ubuntu_config
-    - never
+

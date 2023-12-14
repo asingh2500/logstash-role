@@ -1,15 +1,6 @@
 ---
 # vars file for logstash-tool
 
-#var for logstash version
-logstash_version: "8.11.1"
-
-# vars for ubuntu
+logstash_version: "8.x"
+logstash_package: logstash
 ubuntu_java_apt_package: openjdk-11-jdk
-ubuntu_logstash_repo_key_url: "https://artifacts.elastic.co/GPG-KEY-elasticsearch"
-ubuntu_logstash_repo_url: "deb https://artifacts.elastic.co/packages/8.x/apt stable main"
-
-
-# elasticsearch_host: "your_elasticsearch_host"
-# elasticsearch_port: 9200
-# elasticsearch_index: "your_index_name"
