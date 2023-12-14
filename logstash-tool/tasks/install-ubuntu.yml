@@ -1,0 +1,38 @@
+---
+name: Install Logstash on Ubuntu
+hosts: server1
+become: yes
+tasks:
+
+  - name: Install Java
+    apt:
+      name: "{{ ubuntu_java_apt_package }}"
+      state: present
+
+  - name: Add Logstash APT Repository Key
+    apt_key:
+      url: "{{ ubuntu_logstash_repo_key_url }}"
+    state: present
+
+  - name: Install the apt-transport-https package
+    apt:
+      name: apt-transport-https
+      state: present
+
+  - name: Add Logstash APT Repository
+    apt_repository:
+      repo: "{{ ubuntu_logstash_repo_url }}"
+      state: present
+      update_cache: yes
+
+  - name: Install specific logstash version
+    apt:
+      name: "logstash={{ logstash_version }}"
+      state: present
+
+  - name: Start and enable Logstash Service
+    service:
+      name: logstash
+      state: started
+      enabled: yes
+...
