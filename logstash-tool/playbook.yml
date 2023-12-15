@@ -1,5 +1,0 @@
-- name: Logstash 
-  hosts: localhost
-  become: yes
-  roles:
-  - role: /home/ubuntu/logstash-role/logstash-tool
